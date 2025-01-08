@@ -65,9 +65,7 @@ const page = ({ params }) => {
                     // <span className="flex w-1 h-1 rounded-full dark:bg-white bg-dark mr-2">
                     //   {" "}
                     // </span>
-                    <span className="mr-4">
-                      {" "}
-                    </span>
+                    <span className="mr-4"> </span>
                   ) : null}
                   <span className=" text-[1rem] text-white">
                     {heading.text}
@@ -90,7 +88,7 @@ const page = ({ params }) => {
             <span> &gt; </span>
           </span>
         ))}
-        <h1 className="text-4xl font-bold">{blog.title}</h1>
+        <h1 className="text-4xl font-bold">{blog?.title}</h1>
         <Card blog={blog} />
       </div>
     </div>

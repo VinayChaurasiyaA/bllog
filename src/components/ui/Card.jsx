@@ -29,7 +29,7 @@ const mdxComponents = {
 
 const Card = ({ blog }) => {
   //   console.log(blog);
-  const MDXContent = useMDXComponent(blog.body.code);
+  const MDXContent = useMDXComponent(blog?.body.code);
 
   return (
     <div

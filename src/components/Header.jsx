@@ -10,6 +10,7 @@ import {
   SunIcon,
   TwitterIcon,
 } from "./ui/Icons";
+import TranslationButton from "./ui/TranslationButton";
 
 const routes = [
   {
@@ -47,7 +48,7 @@ const Header = () => {
           )}
         </button>
       </nav>
-      <div>
+      <div className="flex items-center">
         <a href="https://example.com" className="inline-block w-6 h-6 mr-4">
           <LinkedinIcon className="inline-block w-6 h-6 mr-4 hover:scale-150 transition-all ease duration-200" />
         </a>
@@ -60,6 +61,7 @@ const Header = () => {
         <a href="https://example.com" className="inline-block w-6 h-6 mr-4">
           <DribbbleIcon className="inline-block w-6 h-6 mr-4" />
         </a>
+        <TranslationButton />
       </div>
     </header>
   );
