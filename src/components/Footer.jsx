@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import Underline from "./ui/underline";
+import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../Provider/Provider";
 
 const insights = [
   "20+ Projects Completed",
@@ -11,28 +14,40 @@ const insights = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const insights = t("insights", {
+    returnObjects: true, // Enables returning arrays
+    defaultValue: [
+      "20+ Projects Completed",
+      "3+ Years of Freelancing",
+      "99% Client Satisfaction",
+      "Authored In-Depth Course on Educative",
+      "Contributed as a Technical Course Reviewer 📝",
+      "Recipient of the Hackernoon Noonies Award 🏆",
+    ], // Fallback default values
+  });
   return (
-    <div className="bg-black-500 text-light dark:text-light">
+    <footer className="bg-black-500 text-light dark:text-light">
       <Underline />
       <div className="container mx-auto py-4 text-center text-lg">
-        Interesting Stories | Updates | Guides
+        {t("Interesting Stories", "Interesting Stories")}
       </div>
-      <div className="container mx-auto py-4 text-center text-lg m-auto">
-        <div className="grid grid-cols-6 gap-4">
+      <div className="container mx-auto py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
           {insights.map((insight, index) => (
-            <div
-              key={index}
-              className="col-span-8 sm:col-span-6 md:col-span-4 lg:col-span-3"
-            >
+            <div key={index} className="text-lg font-medium">
               {insight}
             </div>
           ))}
         </div>
       </div>
       <div className="container mx-auto py-4 text-center text-lg">
-        © 2023 CodeBucks. All rights reserved.
+        {t(
+          "© 2023 CodeBucks. All rights reserved.",
+          "© 2023 CodeBucks. All rights reserved."
+        )}
       </div>
-    </div>
+    </footer>
   );
 };
 

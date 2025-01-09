@@ -4,6 +4,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import { CopyButton } from "./Cbutton";
 
+// This is for the language of a code block
 export const Pre = ({ children, raw, ...props }) => {
   const lang = props["data-language"];
   return (

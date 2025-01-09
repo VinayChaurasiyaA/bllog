@@ -34,7 +34,7 @@ const Header = () => {
         {routes.map((route) => (
           <Link
             key={route.name}
-            href={route.path}
+            href={route.path === "/" ? "/" : `/${route.path}`}
             className="text-dark dark:text-light mx-2"
           >
             {route.name}

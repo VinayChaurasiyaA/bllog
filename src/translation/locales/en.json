@@ -1,4 +1,19 @@
 {
   "hello": "Hello",
-  "world": "World"
+  "world": "World",
+  "welcome": "Welcome",
+  "to": "to",
+  "react": "React",
+  "Home": "Home",
+  "About": "About",
+  "Contact": "Contact",
+  "insights": [
+    "20+ Projects Completed",
+    "3+ Years of Freelancing",
+    "99% Client Satisfaction",
+    "Authored In-Depth Course on Educative",
+    "Contributed as a Technical Course Reviewer 📝",
+    "Recipient of the Hackernoon Noonies Award 🏆"
+  ],
+  "Interesting Stories": "Interesting Stories"
 }

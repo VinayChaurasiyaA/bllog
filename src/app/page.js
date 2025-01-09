@@ -12,10 +12,10 @@ import { LanguageContext } from "../Provider/Provider";
 // TODO: create a contextApi and store the language choosen by the user and then use it in the translation button
 export default function Home() {
   // console.log(allBlogs);
-  const { lng, setLng } = useContext(LanguageContext);
+  // const { lng, setLng } = useContext(LanguageContext);
   // console.log("Language from useContext", useContext(LanguageContext));
-  console.log("Language from useContext lng", lng);
-  const { t } = useTranslation();
+  // console.log("Language from useContext lng", lng);
+  // const { t } = useTranslation();
 
   return (
     <div className="ml-[20%]">
