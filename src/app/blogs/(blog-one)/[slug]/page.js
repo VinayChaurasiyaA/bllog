@@ -1,13 +1,38 @@
 // "use server";
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { allBlogs } from "../../../../../.contentlayer/generated";
 import Card from "../../../../components/ui/Card";
 
+import { LanguageContext } from "../../../../Provider/Provider";
+
 const page = ({ params }) => {
-  const blog = allBlogs.find(
-    (blogs) => blogs._raw.flattenedPath.replace("blog-one/", "") === params.slug
-  );
+  const { lng } = useContext(LanguageContext);
+  console.log(lng);
+
+  // Filter blogs based on language
+  const pick = allBlogs.filter((blogs) => {
+    if (lng === "hi") {
+      return blogs._raw.flattenedPath.includes("/hindi/");
+    }
+    return !blogs._raw.flattenedPath.includes("/hindi/");
+  });
+
+  // Find the specific blog
+  const blog = pick.find((blogs) => {
+    let path = blogs._raw.flattenedPath
+      .replace("blog-one/", "")
+      .replace("/hindi", "");
+
+    return path === params.slug;
+  });
+
+  console.log("Selected Blog:", blog);
+
+  console.log("Translated Blog:", blog);
+  // const blog = allBlogs.find(
+  //   (blogs) => blogs._raw.flattenedPath.replace("blog-one/", "") === params.slug
+  // );
   const { slug } = params;
   // console.log(blog);
   console.log(slug);

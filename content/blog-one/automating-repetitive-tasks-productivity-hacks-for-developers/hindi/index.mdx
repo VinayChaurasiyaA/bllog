@@ -1,40 +1,40 @@
 ---
-title: "Best Practices for Web Accessibility: Building Inclusive Websites"
-description: "Ensuring web accessibility is vital for reaching a broader audience and creating inclusive digital experiences. This blog highlights essential web accessibility best practices, guidelines, and tools to make your websites accessible to everyone."
-image: "../../public/blogs/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
-publishedAt: "2022-11-12"
-updatedAt: "2022-11-12"
+title: "दोहराए जाने वाले कार्यों को स्वचालित करना: डेवलपर्स के लिए उत्पादकता हॅक्स"
+description: Vercel पर अपने Next.js ऐप्स को कैसे डिप्लॉय करें।
+image: "../../public/blogs/emile-perron-xrVDYZRGdw4-unsplash.jpg"
+publishedAt: "2023-01-01"
+updatedAt: "2023-01-01"
 author: "codebucks"
 isPublished: true
 tags:
-  - code quality
+  - productivity
 ---
 
-Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
+अब तक, Tailwind का उपयोग करके किसी लेख, दस्तावेज़, या ब्लॉग पोस्ट को स्टाइल करना एक थकाऊ कार्य था जिसमें टाइपोग्राफी के लिए एक तेज नज़र और बहुत सारे कस्टम CSS की आवश्यकता होती थी।
 
-By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
+डिफ़ॉल्ट रूप से, Tailwind पैराग्राफ, हेडिंग, लिस्ट और अन्य से सभी डिफ़ॉल्ट ब्राउज़र स्टाइलिंग को हटा देता है। यह एप्लिकेशन यूआई बनाने के लिए वास्तव में उपयोगी है क्योंकि आप यूजर-एजेंट स्टाइल्स को हटाने में कम समय व्यतीत करते हैं, लेकिन जब आप वास्तव में किसी CMS से आए रिच-टेक्स्ट एडिटर या मार्कडाउन फाइल से कंटेंट को स्टाइल करने की कोशिश कर रहे होते हैं, तो यह आश्चर्यजनक और अजीब लग सकता है।
 
-We get lots of complaints about it actually, with people regularly asking us things like:
+हमें इसके बारे में बहुत सारी शिकायतें मिलती हैं, जहां लोग नियमित रूप से हमसे पूछते हैं:
 
-> Why is Tailwind removing the default styles on my `h1` elements? How do I disable this? What do you mean I lose all the other base styles too?
-> We hear you, but we're not convinced that simply disabling our base styles is what you really want. You don't want to have to remove annoying margins every time you use a `p` element in a piece of your dashboard UI. And I doubt you really want your blog posts to use the user-agent styles either — you want them to look _awesome_, not awful.
+> Tailwind मेरे `h1` एलिमेंट्स पर डिफ़ॉल्ट स्टाइल्स को क्यों हटा रहा है? मैं इसे कैसे अक्षम करूं? आपका क्या मतलब है कि मैं अन्य बेस स्टाइल्स को भी खो दूंगा?
+> हम आपकी बात समझते हैं, लेकिन हमें यकीन नहीं है कि केवल हमारे बेस स्टाइल्स को अक्षम करना ही वह है जो आप वास्तव में चाहते हैं। आप नहीं चाहते कि हर बार जब आप अपने डैशबोर्ड यूआई में `p` एलिमेंट का उपयोग करें, तो आपको परेशान करने वाले मार्जिन को हटाना पड़े। और मुझे संदेह है कि आप वास्तव में चाहते हैं कि आपके ब्लॉग पोस्ट यूजर-एजेंट स्टाइल्स का उपयोग करें — आप चाहते हैं कि वे _अद्भुत_ दिखें, न कि भयानक।
 
-The `@tailwindcss/typography` plugin is our attempt to give you what you _actually_ want, without any of the downsides of doing something stupid like disabling our base styles.
+`@tailwindcss/typography` प्लगइन हमारा प्रयास है कि हम आपको वह दें जो आप _वास्तव में_ चाहते हैं, बिना किसी बेस स्टाइल्स को अक्षम करने जैसे मूर्खतापूर्ण कार्य के नकारात्मक पहलुओं के।
 
-It adds a new `prose` class that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:
+यह एक नया `prose` क्लास जोड़ता है जिसे आप किसी भी वैनिला HTML कंटेंट पर लगा सकते हैं और इसे एक सुंदर, अच्छी तरह से फॉर्मेटेड दस्तावेज़ में बदल सकते हैं:
 
 ```html
 <article className="prose">
-  <h1>Garlic bread with cheese: What the science tells us</h1>
+  <h1>लहसुन की रोटी और पनीर: विज्ञान हमें क्या बताता है</h1>
   <p>
-    For years parents have espoused the health benefits of eating garlic bread
-    with cheese to their children, with the food earning such an iconic status
-    in our culture that kids will often dress up as warm, cheesy loaf for
-    Halloween.
+    वर्षों से माता-पिता ने अपने बच्चों को लहसुन की रोटी और पनीर खाने के
+    स्वास्थ्य लाभों के बारे में बताया है, और यह भोजन हमारी संस्कृति में इतना
+    प्रतिष्ठित हो गया है कि बच्चे अक्सर हैलोवीन पर गर्म, चीज़ी रोटी के रूप में
+    तैयार होते हैं।
   </p>
   <p>
-    But a recent study shows that the celebrated appetizer may be linked to a
-    series of rabies cases springing up around the country.
+    लेकिन एक हालिया अध्ययन से पता चलता है कि यह प्रसिद्ध ऐपेटाइज़र देश भर में
+    फैल रहे रेबीज के मामलों से जुड़ा हो सकता है।
   </p>
 </article>
 ```

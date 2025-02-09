@@ -2,6 +2,7 @@
 import React from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
+
 import { CopyButton } from "./Cbutton";
 
 // This is for the language of a code block

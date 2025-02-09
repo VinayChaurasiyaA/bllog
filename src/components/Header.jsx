@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Logo from "./ui/Logo";
 import Link from "next/link";
@@ -11,6 +12,7 @@ import {
   TwitterIcon,
 } from "./ui/Icons";
 import TranslationButton from "./ui/TranslationButton";
+import { useTranslation } from "react-i18next";
 
 const routes = [
   {
@@ -27,6 +29,7 @@ const routes = [
   },
 ];
 const Header = () => {
+  const { t } = useTranslation();
   return (
     <header className="w-full p-4 px-10 flex items-center justify-between">
       <Logo />
@@ -37,7 +40,7 @@ const Header = () => {
             href={route.path === "/" ? "/" : `/${route.path}`}
             className="text-dark dark:text-light mx-2"
           >
-            {route.name}
+            {t(`${route.name}`)}
           </Link>
         ))}
         <button>

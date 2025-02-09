@@ -2,7 +2,6 @@
 import React, { useContext } from "react";
 import Underline from "./ui/underline";
 import { useTranslation } from "react-i18next";
-import { LanguageContext } from "../Provider/Provider";
 
 const insights = [
   "20+ Projects Completed",
